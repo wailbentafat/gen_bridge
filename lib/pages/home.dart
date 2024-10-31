@@ -19,7 +19,7 @@ class Homepage extends StatelessWidget {
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.account_circle),
+          icon: const Icon(Icons.account_circle,size: 8,color: Colors.white24,),
         ),
       ],
     );
