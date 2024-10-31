@@ -1,8 +1,7 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'home.dart';
+import 'outlet.dart'; // Ensure this is the correct import for your main screen
+
 class Splash extends StatefulWidget {
   const Splash({super.key});
 
@@ -17,7 +16,7 @@ class _SplashState extends State<Splash> {
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) =>  const Homepage(),
+          builder: (context) => const Main(), // Replace with your main screen
         ),
       );
     });
@@ -26,27 +25,35 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-       backgroundColor: Color(0xFF4CAF50),
-       body: Center(
-         child: Column(
-           mainAxisAlignment: MainAxisAlignment.center,
-           children: [
-             Text(
+      backgroundColor: Color(0xFFFFFFFF), // White background
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
               "GEN B",
               style: TextStyle(
                 fontSize: 50,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF795548),
-                letterSpacing: 5
+                color: Color(0xFF4CAF50), // Green text
+                letterSpacing: 5,
+                fontFamily: 'Pacifico',
+                shadows: [
+                  Shadow(
+                    offset: Offset(1, 1),
+                    blurRadius: 2,
+                    color: Color(0xFF4CAF50), // Green shadow
+                  ),
+                ]
               ),
-             ),
-             SizedBox(height: 20,),
-             CircularProgressIndicator(
-               valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF795548)),
-             )
-           ],
-         )
-      )
+            ),
+            SizedBox(height: 20),
+            CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF795548)), // Brown spinner
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

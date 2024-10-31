@@ -1,19 +1,39 @@
 import 'package:flutter/material.dart';
 
-
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-     child: const Text('Homepage'
-     ,
-     style: TextStyle(fontSize: 20),
-     
-     )
-     
-     ,
+    final appBar = AppBar(
+      backgroundColor: const Color.fromARGB(255, 139, 207, 122),
+      title: const Text(
+        'GEN B',
+        textAlign: TextAlign.start,
+        style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      ),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.account_circle),
+        ),
+      ],
+    );
+
+    return Scaffold(
+      appBar: appBar,
+      body: const Center(
+        child: Text(
+          'Welcome to GEN B',
+          style: TextStyle(
+            fontSize: 24,
+          ),
+        ),
+      ),
     );
   }
 }
