@@ -1,0 +1,19 @@
+import 'package:flutter/material.dart';
+
+
+class Homepage extends StatelessWidget {
+  const Homepage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+     child: const Text('Homepage'
+     ,
+     style: TextStyle(fontSize: 20),
+     
+     )
+     
+     ,
+    );
+  }
+}
