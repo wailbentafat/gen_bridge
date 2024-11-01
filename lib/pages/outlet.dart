@@ -16,7 +16,7 @@ class _MainState extends State<Main> {
   final List<Widget> _pages = [
     Homepage (),
     Pastev(),
-    Comingev(),
+    const CulturePage(),
   ];
   @override
   Widget build(BuildContext context) {
