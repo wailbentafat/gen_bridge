@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'map.dart'; 
 
-class QuickLinks extends StatelessWidget {
+class QuickLinks extends StatefulWidget {
   const QuickLinks({super.key});
 
+  @override
+  _QuickLinksState createState() => _QuickLinksState();
+}
+
+class _QuickLinksState extends State<QuickLinks> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,7 +21,7 @@ class QuickLinks extends StatelessWidget {
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 33, 48, 43), // Change to your desired color
+              color: Color.fromARGB(255, 76, 137, 117), // Title color
             ),
           ),
           const SizedBox(height: 24),
@@ -25,14 +31,14 @@ class QuickLinks extends StatelessWidget {
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: const Color.fromARGB(255, 76, 137, 117), // Card background color
                     borderRadius: BorderRadius.circular(8),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.1),
                         spreadRadius: 2,
                         blurRadius: 8,
-                        offset: const Offset(0, 3), // changes position of shadow
+                        offset: const Offset(0, 3), 
                       ),
                     ],
                   ),
@@ -42,34 +48,39 @@ class QuickLinks extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'Upcoming Events',
+                          'Explore Cultural Landmarks',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 33, 48, 43),
+                            color: Colors.white, // Text color
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Text(
-                          'Discover our exciting lineup of cultural events.',
-                          style: TextStyle(color: Colors.grey[600]),
+                        const Text(
+                          'Discover Algeria’s rich history through its cultural sites on the map.',
+                          style: TextStyle(color: Colors.white70), 
                         ),
                         const SizedBox(height: 16),
                         ElevatedButton(
                           onPressed: () {
-                            // Handle button press for Upcoming Events
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => InteractiveMap(), 
+                              ),
+                            );
                           },
                           style: ElevatedButton.styleFrom(
-                            foregroundColor: const Color.fromARGB(255, 33, 48, 43),
+                            foregroundColor: const Color.fromARGB(255, 76, 137, 117), 
                             backgroundColor: Colors.white,
-                            side: const BorderSide(color: Color.fromARGB(255, 33, 48, 43)),
+                            side: const BorderSide(color: Colors.white), 
                           ),
                           child: const Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text('View Events'),
+                              Text('View Map'),
                               SizedBox(width: 8),
-                              Icon(Icons.calendar_today, size: 16),
+                              Icon(Icons.map, size: 16),
                             ],
                           ),
                         ),
@@ -82,14 +93,14 @@ class QuickLinks extends StatelessWidget {
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: const Color.fromARGB(255, 76, 137, 117), // Card background color
                     borderRadius: BorderRadius.circular(8),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.1),
                         spreadRadius: 2,
                         blurRadius: 8,
-                        offset: const Offset(0, 3), // changes position of shadow
+                        offset: const Offset(0, 3),
                       ),
                     ],
                   ),
@@ -99,34 +110,39 @@ class QuickLinks extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'Past Events',
+                          'Historical Sites',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 33, 48, 43),
+                            color: Colors.white, // Text color
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Text(
-                          'Relive the memories of our previous cultural celebrations.',
-                          style: TextStyle(color: Colors.grey[600]),
+                        const Text(
+                          'Learn about Algeria’s significant historical landmarks and events.',
+                          style: TextStyle(color: Colors.white70), // Lighter text color
                         ),
                         const SizedBox(height: 16),
                         ElevatedButton(
                           onPressed: () {
-                            // Handle button press for Past Events
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => InteractiveMap(), 
+                              ),
+                            );
                           },
                           style: ElevatedButton.styleFrom(
-                            foregroundColor: const Color.fromARGB(255, 33, 48, 43),
-                            backgroundColor: Colors.white,
-                            side: const BorderSide(color: Color.fromARGB(255, 33, 48, 43)),
+                            foregroundColor: const Color.fromARGB(255, 76, 137, 117), // Button text color
+                            backgroundColor: Colors.white, // Button background color
+                            side: const BorderSide(color: Colors.white), // Button border color
                           ),
                           child: const Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text('Explore Archive'),
+                              Text('Explore Sites'),
                               SizedBox(width: 8),
-                              Icon(Icons.access_time, size: 16),
+                              Icon(Icons.history, size: 16),
                             ],
                           ),
                         ),

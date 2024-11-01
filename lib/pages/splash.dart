@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'outlet.dart'; // Ensure this is the correct import for your main screen
+import 'outlet.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -16,7 +16,7 @@ class _SplashState extends State<Splash> {
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => const Main(), // Replace with your main screen
+          builder: (context) => const Main(),
         ),
       );
     });
@@ -31,7 +31,7 @@ class _SplashState extends State<Splash> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "GEN B",
+              "GEN-B",
               style: TextStyle(
                 fontSize: 50,
                 fontWeight: FontWeight.bold,

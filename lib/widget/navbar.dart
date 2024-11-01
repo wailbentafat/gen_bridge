@@ -11,7 +11,6 @@ class CustomBottomNavigationBar extends StatefulWidget {
   });
 
   @override
-  // ignore: library_private_types_in_public_api
   _CustomBottomNavigationBarState createState() => _CustomBottomNavigationBarState();
 }
 
@@ -19,28 +18,56 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-     
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          IconButton(
-            icon: Icon(
-              Icons.home,
-              color: widget.currentIndex == 0 ? const Color.fromARGB(255, 76, 137, 117) : const Color.fromARGB(255, 68, 130, 70),size:38,
-            ),
-            onPressed: () => widget.onTap(0),
-          ),
-          IconButton(
-            icon: Icon(Icons.history_edu_outlined, color: widget.currentIndex == 1? const Color.fromARGB(255, 76, 137, 117) : Colors.green ,size:38 ,),
-            onPressed: () => widget.onTap(1),
-          ),
-          IconButton(
-             icon: Icon(Icons.arrow_outward_sharp, color: widget.currentIndex == 2? const Color.fromARGB(255, 76, 137, 117) : const Color.fromARGB(255, 59, 134, 61) ,size:38,),
-            onPressed: () => widget.onTap(2),
-          ),
+      color: const Color.fromARGB(255, 33, 48, 43), // Dark green background
+      child: SizedBox(
+        height: 60, // Height of the BottomAppBar
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _buildNavItem(Icons.home, 0),
+            _buildNavItem(Icons.history_edu_outlined, 1),
+            _buildNavItem(Icons.arrow_outward_sharp, 2),
+          ],
+        ),
+      ),
+    );
+  }
 
+  Widget _buildNavItem(IconData icon, int index) {
+    final isSelected = widget.currentIndex == index;
+    return GestureDetector(
+      onTap: () => widget.onTap(index), // Keep the logic intact
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            icon,
+            color: isSelected ? const Color.fromARGB(255, 76, 137, 117) : Colors.grey, // Active vs inactive color
+            size: 30,
+          ),
+          const SizedBox(height: 4), 
+          Text(
+            _getLabel(index),
+            style: TextStyle(
+              color: isSelected ? const Color.fromARGB(255, 76, 137, 117) : Colors.grey,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  String _getLabel(int index) {
+    switch (index) {
+      case 0:
+        return "Home";
+      case 1:
+        return "Events";
+      case 2:
+        return "More";
+      default:
+        return "";
+    }
   }
 }

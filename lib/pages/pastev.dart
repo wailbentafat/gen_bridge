@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'quizpa.dart';
+import 'event.dart';
 
-class Pastev extends StatelessWidget {
-  // Sample data for historical events
+class Pastev extends StatefulWidget {
+  const Pastev({Key? key}) : super(key: key);
+
+  @override
+  _PastevState createState() => _PastevState();
+}
+
+class _PastevState extends State<Pastev> {
   final List<Map<String, String>> historicalEvents = [
     {
       'id': '1',
@@ -23,26 +31,34 @@ class Pastev extends StatelessWidget {
     },
   ];
 
-  // Function to execute on card tap
   void onCardTap(Map<String, String> event) {
-    // Handle the tap event (e.g., navigate to a details page)
-    print('Tapped on: ${event['title']}');
-    // You can also show a dialog or perform other actions here
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EventDetailPage(
+          title: event['title']!,
+          summary: event['summary']!,
+          year: event['year']!,
+        ),
+      ),
+    );
   }
 
-  // Function to execute when quiz button is tapped
-  void onQuizButtonTap(Map<String, String> event) {
-    // Handle quiz action here
-    print('Starting quiz for: ${event['title']}');
-    // Implement your quiz logic here
+  void onQuizButtonTap(BuildContext context, Map<String, String> event) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => QuizPage(title: event['title']!),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar(
-      backgroundColor: const Color.fromARGB(255, 76, 137, 117),
+      backgroundColor: const Color.fromARGB(255, 33, 48, 43), // Match Bottom Navigation Bar
       title: const Text(
-        'GEN B',
+        'GEN-B',
         style: TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.bold,
@@ -84,14 +100,14 @@ class Pastev extends StatelessWidget {
                 final event = historicalEvents[index];
                 return Card(
                   margin: const EdgeInsets.all(16),
-                  color: const Color.fromARGB(255, 76, 137, 117),
+                  color: const Color.fromARGB(255, 76, 137, 117), // Match card color
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         GestureDetector(
-                          onTap: () => onCardTap(event), // Handle tap
+                          onTap: () => onCardTap(event),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -124,9 +140,10 @@ class Pastev extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         ElevatedButton(
-                          onPressed: () => onQuizButtonTap(event), // Quiz button tap
+                          onPressed: () => onQuizButtonTap(context, event),
                           style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.black, backgroundColor: Colors.white, // Text color
+                            foregroundColor: const Color.fromARGB(255, 76, 137, 117), // Button text color
+                            backgroundColor: Colors.white,
                           ),
                           child: const Text('Take Quiz'),
                         ),
