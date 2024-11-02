@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'map.dart'; 
+
+import '../pages/comingev.dart';
+
 
 class QuickLinks extends StatefulWidget {
   const QuickLinks({super.key});
@@ -66,7 +68,7 @@ class _QuickLinksState extends State<QuickLinks> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => InteractiveMap(), 
+                                builder: (context) => const CulturePage(), 
                               ),
                             );
                           },
@@ -128,7 +130,7 @@ class _QuickLinksState extends State<QuickLinks> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => InteractiveMap(), 
+                                builder: (context) => const CulturePage(), 
                               ),
                             );
                           },

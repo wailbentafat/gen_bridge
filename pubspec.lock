@@ -82,10 +82,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_map
-      sha256: a978283c3f2dfb1a626350a7ab32e13380148fe9b710cac8e7a7db55e0bab666
+      sha256: "9401bcc83b1118ddd35c0b25efaa5af182572707f1887bbb7817c2337fcd8c97"
       url: "https://pub.dev"
     source: hosted
-    version: "0.14.0"
+    version: "0.13.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
