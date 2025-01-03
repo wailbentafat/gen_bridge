@@ -1,6 +1,6 @@
-# mobile_app
+# gen_bridge
 
-A new Flutter project.
+mobile ui coded in flutter tht have some cool quiz and stuff to make lye ppl with generation 
 
 ## Getting Started
 
